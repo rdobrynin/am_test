@@ -1,1 +1,24 @@
 <app-header></app-header>
+<div class="property__wrapper">
+    <div [style.margin]="'60px 0px 20px 0'" [style.padding]="'0 20px'">
+        <a href="javascript:void(0);" (click)="goBack($event)">Go Back</a>
+    </div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title ><h3 [innerHTML]="property?.name"></h3></mat-card-title>
+        </mat-card-header>
+        <!--<img mat-card-image src="{{propertyItem?.thumbUrl}}" alt="photo">-->
+        <mat-grid-list [cols]="breakpoint"  rowHeight="2:1" (window:resize)="onResize($event)">
+            <mat-grid-tile>1</mat-grid-tile>
+            <mat-grid-tile>2</mat-grid-tile>
+        </mat-grid-list>
+        <mat-card-subtitle>
+            <!--<p [innerHTML]="property?.description | newline"></p>-->
+           <div [innerHTML]>
+               <p *ngFor="let myContent of property?.description.split('\n')">
+                   <span [innerHTML]="myContent"></span>
+               </p>
+           </div>
+        </mat-card-subtitle>
+    </mat-card>
+</div>
