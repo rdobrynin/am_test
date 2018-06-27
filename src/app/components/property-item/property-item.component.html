@@ -1,19 +1,13 @@
 <div class="property-item__wrapper">
-  <mat-card class="example-card" [style.backgroundColor]="propertyItem?.propertyType == 'HOUSEPART' ? '#e2e2e2' : '#ffffff'">
+  <mat-card [style.backgroundColor]="propertyItem?.propertyType == 'HOUSEPART' ? '#e2e2e2' : '#ffffff'">
     <mat-card-header>
       <mat-card-title>Address: <a [routerLink]="['property', propertyItem?.id]">{{propertyItem?.realAddress}}</a></mat-card-title>
       <mat-card-subtitle>
-        Price: {{propertyItem?.price}} EUR
-        &nbsp;<span *ngIf="propertyItem?.price != propertyItem?.priceOld"> Old price: {{propertyItem?.priceOld}} EUR</span>
+        Price: {{ propertyItem?.price  | currency:'EUR':true:'1.0-2' }}
+        &nbsp;<span *ngIf="propertyItem?.price != propertyItem?.priceOld"> <del [style.color]="'red'">Old price: {{propertyItem?.priceOld}} &euro;</del></span>
       </mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="{{propertyItem?.thumbUrl}}" alt="photo">
-
-    <mat-card-content *ngIf="propertyItem?.descriptionShort">
-      <p>
-        {{propertyItem?.descriptionShort}}
-      </p>
-    </mat-card-content>
     <mat-card-footer *ngIf="propertyItem?.year > 0">
       <p>
         Built in {{propertyItem?.year}} y
