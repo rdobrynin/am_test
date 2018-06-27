@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
+import { Observable} from 'rxjs/Rx';
 import { Configuration } from '../constants';
 
 @Injectable()
@@ -7,7 +8,7 @@ export class ApiService {
   private actionUrl: string;
   private propertyUrl: string;
 
-  public constructor(private http: HttpClient, private _configuration: Configuration) {
+  public constructor(private httpClient: HttpClient, private _configuration: Configuration) {
     this.actionUrl = _configuration.ServerWithApiUrl;
     this.propertyUrl = _configuration.Server;
   }
@@ -25,13 +26,25 @@ export class ApiService {
    */
 
   public getProperties(
-    limit: string,
+    limit: string ,
     type: string,
     priceFrom: string,
     priceTo: string,
     query: string) {
-    return this.http.get(this.actionUrl + `property/search?
-    limit=${limit}&price_from=${priceFrom}&price_to=${priceTo}&query=${query}`);
+    let params = new HttpParams().set('limit', limit);
+    if(type.length > 0) {
+      params = params.set('type', type);
+    }
+    if(priceFrom.length > 0) {
+      params = params.set('price_from', priceFrom);
+    }
+    if(priceTo.length > 0) {
+      params = params.set('price_to', priceTo);
+    }
+    if(query.length > 0) {
+      params = params.set('query', query);
+    }
+    return this.httpClient.get(this.propertyUrl + `property/search`, {params: params});
   }
 
   /**
@@ -42,7 +55,7 @@ export class ApiService {
    */
 
   public getProperty(id: string) {
-    return this.http.get(this.propertyUrl + `property/${id}`);
+    return this.httpClient.get(this.propertyUrl + `property/${id}`);
   }
 
 }

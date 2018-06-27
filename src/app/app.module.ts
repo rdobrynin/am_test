@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
@@ -11,6 +11,18 @@ import { PropertyItemComponent } from './components/property-item/property-item.
 import { PropertyComponent } from './pages/property/property.component';
 import { ApiService } from './services/api.service';
 import { SortComponent } from './components/sort/sort.component';
+import { Configuration } from './constants';
+import { HeaderComponent } from './components/header/header.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+export const ROUTES: Routes = [
+  {
+    path: '', component: HomeComponent
+  },
+  {
+    path: 'property/:id', component: PropertyComponent
+  }
+];
 
 
 @NgModule({
@@ -19,16 +31,18 @@ import { SortComponent } from './components/sort/sort.component';
     HomeComponent,
     PropertyItemComponent,
     PropertyComponent,
-    SortComponent
+    SortComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [ApiService],
+  providers: [ApiService, Configuration],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

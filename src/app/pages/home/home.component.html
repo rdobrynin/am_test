@@ -1,3 +1,13 @@
-<p>
-  home works!
-</p>
+<app-header></app-header>
+<div class="home__feedList-wrapper" *ngIf="propertyItems !== undefined" @fadeIn>
+    <section>
+        <app-sort></app-sort>
+    </section>
+
+    <section>
+        <div *ngFor="let property of propertyItems">
+            <app-property-item [propertyItem]="property"></app-property-item>
+            <br>
+        </div>
+    </section>
+</div>

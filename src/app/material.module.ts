@@ -4,8 +4,14 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCardModule,
+  MatListModule,
+  MatInputModule,
+  MatIconModule
 } from '@angular/material';
+
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -13,13 +19,24 @@ import {
     MatToolbarModule,
     MatButtonModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatListModule,
+    MatInputModule,
+    MatRadioModule,
+    MatIconModule
+
   ],
   exports: [
     MatToolbarModule,
     MatButtonModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatListModule,
+    MatInputModule,
+    MatRadioModule,
+    MatIconModule
   ]
 })
 export class MaterialModule {}

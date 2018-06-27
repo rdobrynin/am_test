@@ -1,0 +1,18 @@
+.property-item__wrapper {
+  .mat-card {
+    padding-bottom: 0;
+    .mat-card-image {
+      margin: 0 -24px -4px -24px;
+    }
+    .mat-card-content {
+      margin: 0;
+      padding: 10px;
+    }
+  }
+  .mat-card-subtitle {
+  }
+  .mat-card-footer {
+       padding: 10px 30px;
+       margin-bottom: 10px;
+     }
+}

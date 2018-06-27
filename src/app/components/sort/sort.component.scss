@@ -1,0 +1,11 @@
+.sort__wrapper {
+  margin-bottom: 20px;
+  mat-card {
+    padding: 10px;
+    mat-toolbar {
+      padding: 0;
+      background-color: transparent;
+      font-size: 13px;
+    }
+  }
+}

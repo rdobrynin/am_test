@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-property-item',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertyItemComponent implements OnInit {
 
+  @Input() public propertyItem: any;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.propertyItem);
   }
 
 }
