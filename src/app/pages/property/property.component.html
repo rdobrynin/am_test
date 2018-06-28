@@ -3,24 +3,34 @@
     <div [style.margin]="'60px 0px 20px 0'" [style.padding]="'0 20px'">
         <a href="javascript:void(0);" (click)="goBack($event)">Go Back</a>
     </div>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title><h3 [innerHTML]="property?.name"></h3></mat-card-title>
-        </mat-card-header>
-        <!--<img mat-card-image src="{{propertyItem?.thumbUrl}}" alt="photo">-->
-        <mat-grid-list [cols]="breakpoint" [rowHeight]="500"  rowHeight="2:1" (window:resize)="onResize($event)">
-            <mat-grid-tile *ngIf="galleryImages">
-                <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-            </mat-grid-tile>
-            <mat-grid-tile>2</mat-grid-tile>
-        </mat-grid-list>
-        <mat-card-subtitle>
-            <!--<p [innerHTML]="property?.description | newline"></p>-->
-           <div [innerHTML]>
-               <p *ngFor="let propertyContent of property?.description.split('\n')">
-                   <span [innerHTML]="propertyContent"></span>
-               </p>
-           </div>
-        </mat-card-subtitle>
-    </mat-card>
+   <div  *ngIf="property">
+       <mat-card>
+           <mat-card-header>
+               <mat-card-title><h3 [innerHTML]="property?.name"></h3></mat-card-title>
+           </mat-card-header>
+           <!--<img mat-card-image src="{{propertyItem?.thumbUrl}}" alt="photo">-->
+           <mat-grid-list [cols]="breakpoint" [rowHeight]="400"  rowHeight="2:1" (window:resize)="onResize($event)">
+               <mat-grid-tile *ngIf="galleryImages">
+                   <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+               </mat-grid-tile>
+               <mat-grid-tile style="height: 100% !important;">
+               <div class="metadata-content">
+                   <ul>
+                       <li *ngFor="let item of property.metadata | generateArray">
+                           <b><span [innerHTML]="item.key"></span></b>&nbsp;:&nbsp;<span [innerHTML]="item.value"></span>
+                       </li>
+                   </ul>
+               </div>
+               </mat-grid-tile>
+           </mat-grid-list>
+           <mat-card-subtitle>
+               <!--<p [innerHTML]="property?.description | newline"></p>-->
+               <div [innerHTML]>
+                   <p *ngFor="let propertyContent of property?.description.split('\n')">
+                       <span [innerHTML]="propertyContent"></span>
+                   </p>
+               </div>
+           </mat-card-subtitle>
+       </mat-card>
+   </div>
 </div>

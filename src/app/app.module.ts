@@ -15,6 +15,7 @@ import { Configuration } from './constants';
 import { HeaderComponent } from './components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { GenerateArrayPipe } from './pipes/generate-array.pipe';
 
 export const ROUTES: Routes = [
   {
@@ -33,7 +34,8 @@ export const ROUTES: Routes = [
     PropertyItemComponent,
     PropertyComponent,
     SortComponent,
-    HeaderComponent
+    HeaderComponent,
+    GenerateArrayPipe
   ],
   imports: [
     BrowserModule,
