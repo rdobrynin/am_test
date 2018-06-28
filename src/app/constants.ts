@@ -11,4 +11,7 @@ export class Configuration {
   // JSON constants
   public defaultLimitValue: string = String(30);
   public defaultGalleryItemsValue: number = 5;
+
+//  Sizes
+  public mobileBreakPoint = 766
 }

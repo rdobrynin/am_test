@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router'
 import { Location } from '@angular/common';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
@@ -14,7 +14,7 @@ import { Configuration } from '../../constants';
 export class PropertyComponent implements OnInit {
   public property: Property;
   public id: string;
-  breakpoint: number = 2;
+  breakpoint: number = window.innerWidth <= this._configuration.mobileBreakPoint ? 1 : 2;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
