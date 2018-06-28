@@ -2,4 +2,11 @@
   max-width: 800px;
   width: 100%;
   margin: 50px auto;
+  .mat-grid-list {
+    margin-bottom: 40px;
+  }
 }
+
+ngx-gallery /deep/ .ngx-gallery-layout.thumbnails-bottom {
+   z-index: 1 !important;
+ }

@@ -3,11 +3,13 @@
     <section>
         <app-sort></app-sort>
     </section>
-
-    <section>
+    <section *ngIf="propertyItems.length >= 1; else noItemsFound">
         <div *ngFor="let property of propertyItems">
             <app-property-item [propertyItem]="property"></app-property-item>
             <br>
         </div>
     </section>
+    <ng-template #noItemsFound>
+        <h3>No one Property found</h3>
+    </ng-template>
 </div>

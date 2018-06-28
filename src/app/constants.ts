@@ -10,4 +10,5 @@ export class Configuration {
 
   // JSON constants
   public defaultLimitValue: string = '10';
+  public defaultGalleryItemsValue: number = 5;
 }

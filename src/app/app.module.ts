@@ -14,6 +14,7 @@ import { SortComponent } from './components/sort/sort.component';
 import { Configuration } from './constants';
 import { HeaderComponent } from './components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 export const ROUTES: Routes = [
   {
@@ -40,6 +41,7 @@ export const ROUTES: Routes = [
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
+    NgxGalleryModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [ApiService, Configuration],
