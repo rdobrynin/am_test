@@ -12,7 +12,7 @@ export class PropertyItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.propertyItem);
+    // console.log(this.propertyItem);
   }
 
 }

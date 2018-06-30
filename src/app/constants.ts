@@ -9,7 +9,7 @@ export class Configuration {
   public ServerWithApiUrl = this.Server + this.ApiUrl;
 
   // JSON constants
-  public defaultLimitValue: string = String(30);
+  public defaultLimitValue: string = String(10);
   public defaultGalleryItemsValue: number = 5;
 
 //  Sizes

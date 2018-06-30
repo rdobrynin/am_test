@@ -1,39 +1,27 @@
 <div class="sort__wrapper">
-  <mat-card>
-    <!--<mat-toolbar >-->
-      <!--<mat-toolbar>-->
-        <!--<mat-form-field>-->
-          <!--<input matInput type="number" placeholder="Limit" value="10">-->
-        <!--</mat-form-field>-->
-      <!--</mat-toolbar>-->
-      <!--<mat-toolbar>-->
-        <!--<mat-form-field>-->
-          <!--<input matInput type="number" placeholder="Price from" value="">-->
-        <!--</mat-form-field>-->
-      <!--</mat-toolbar>-->
-      <!--<mat-toolbar>-->
-        <!--<mat-form-field>-->
-          <!--<input matInput type="number" placeholder="Price to" value="">-->
-        <!--</mat-form-field>-->
-      <!--</mat-toolbar>-->
-    <!--</mat-toolbar>-->
-    <mat-toolbar-row>
-      <!--<mat-toolbar>-->
-        <!--<mat-radio-group >-->
-          <!--<mat-radio-button color="primary" value="1">House</mat-radio-button>-->
-          <!--<mat-radio-button color="primary" value="2">HousePart</mat-radio-button>-->
-        <!--</mat-radio-group>-->
-      <!--</mat-toolbar>-->
-      <!--<mat-toolbar>-->
-        <!--<mat-form-field>-->
-          <!--<input matInput type="text" placeholder="Query" value="">-->
-        <!--</mat-form-field>-->
-      <!--</mat-toolbar>-->
 
-      <mat-toolbar>
-        <button mat-raised-button color="primary">Search</button>
-      </mat-toolbar>
-      </mat-toolbar-row>
-  </mat-card>
+  <mat-form-field class="search-form">
+    <input matInput placeholder="Select limit" type="number" [formControl]="limitControl" minlength="1">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Price From" type="number" [formControl]="priceFromControl" minlength="1">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Price to" type="number" [formControl]="priceToControl" minlength="1">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select type" [(value)]="typeControl">
+      <mat-option [value]="">None</mat-option>
+      <mat-option *ngFor="let type of searchTypes"  [value]="type">{{type}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Query" type="text" [formControl]="queryControl" minlength="1">
+  </mat-form-field>
+
+
+  <button button="submit" mat-raised-button color="primary" (click)="submitSearch()">Search</button>
 </div>
 <br>

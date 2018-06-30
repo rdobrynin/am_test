@@ -41,7 +41,8 @@ export class HomeComponent implements OnInit {
         this.getType,
         this.getPriceFrom,
         this.getPriceTo,
-        this.getQuery ).subscribe((data) => this.parseFeedData(data));
+        this.getQuery ).subscribe((data) => this.parseFeedData(data), err => console.error(err),
+        () => console.log('done'));
     });
   }
 

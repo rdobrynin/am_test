@@ -9,7 +9,8 @@ import {
   MatListModule,
   MatInputModule,
   MatIconModule,
-  MatGridListModule
+  MatGridListModule,
+  MatFormFieldModule
 } from '@angular/material';
 
 import {MatRadioModule} from '@angular/material/radio';
@@ -26,7 +27,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatRadioModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule
 
   ],
   exports: [
@@ -39,7 +41,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatRadioModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule {}

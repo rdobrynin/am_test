@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { GenerateArrayPipe } from './pipes/generate-array.pipe';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 export const ROUTES: Routes = [
   {
@@ -44,6 +45,8 @@ export const ROUTES: Routes = [
     HttpClientModule,
     FlexLayoutModule,
     NgxGalleryModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [ApiService, Configuration],
