@@ -26,7 +26,7 @@ export class ApiService {
    */
 
   public getProperties(
-    limit: string ,
+    limit: string,
     type: string,
     priceFrom: string,
     priceTo: string,

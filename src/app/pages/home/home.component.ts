@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { state, trigger, transition, style, animate } from '@angular/animations';
 import { ApiService} from "../../services/api.service";
 import { Configuration } from '../../constants';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-home',
