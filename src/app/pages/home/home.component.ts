@@ -90,9 +90,18 @@ export class HomeComponent implements OnInit {
 
 
   public submitSearch(e) {
-    if (this.typeControl === undefined) this.typeControl = '';
-    if (this.priceFromValue === null) this.priceFromValue = '';
-    if (this.priceToValue === null) this.priceToValue = '';
+    if (this.typeControl === undefined) {
+      this.typeControl = '';
+    }
+    if (this.priceFromValue === null) {
+      this.priceFromValue = '';
+    }
+    if (this.priceToValue === null) {
+      this.priceToValue = '';
+    }
+    if (Number(this.limitValue) < 0 || Number(this.priceFromValue) < 0 || Number(this.priceToValue) < 0) {
+      return false;
+    }
     this.apiService.getProperties(
       this.limitValue,
       this.typeControl,

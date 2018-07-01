@@ -8,8 +8,11 @@ export class ApiService {
   private actionUrl: string;
   private propertyUrl: string;
 
-  private data = [];
-
+  /**
+   * HttpClient
+   * @param {HttpClient} httpClient
+   * @param {Configuration} _configuration
+   */
   public constructor(private httpClient: HttpClient, private _configuration: Configuration) {
     this.actionUrl = _configuration.ServerWithApiUrl;
     this.propertyUrl = _configuration.Server;
@@ -22,16 +25,16 @@ export class ApiService {
     priceTo: string,
     query: string) {
     let params = new HttpParams().set('limit', limit);
-    if(type.length > 0) {
+    if (type.length > 0) {
       params = params.set('type', type);
     }
-    if(priceFrom.length > 0) {
+    if (priceFrom.length > 0) {
       params = params.set('price_from', priceFrom);
     }
-    if(priceTo.length > 0) {
+    if (priceTo.length > 0) {
       params = params.set('price_to', priceTo);
     }
-    if(query.length > 0) {
+    if (query.length > 0) {
       params = params.set('query', query);
     }
     return this.httpClient.get(this.propertyUrl + `property/search`, {params: params});
