@@ -49,8 +49,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService,
-    private _configuration: Configuration,
-    private formBuilder: FormBuilder) {
+    private _configuration: Configuration) {
 
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
