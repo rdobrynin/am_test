@@ -1,9 +1,9 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router'
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params} from '@angular/router';
 import { Location } from '@angular/common';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
-import { Property} from "../../models/property";
-import { ApiService} from "../../services/api.service";
+import { Property} from '../../models/property';
+import { ApiService} from '../../services/api.service';
 import { Configuration } from '../../constants';
 
 @Component({
@@ -59,7 +59,7 @@ export class PropertyComponent implements OnInit {
        thumbnailsPercent: 1,
        thumbnailsMargin: 20,
        thumbnailMargin: 20,
-       thumbnailsSwipe:true
+       thumbnailsSwipe: true
      }
     ];
   }
@@ -72,7 +72,7 @@ export class PropertyComponent implements OnInit {
   private parseFeedData(data) {
     this.property =  data;
 
-    let newImages = [];
+    const newImages = [];
 
     for (let _i = 0; _i < this._configuration.defaultGalleryItemsValue; _i++) {
       newImages.push({
@@ -102,7 +102,7 @@ export class PropertyComponent implements OnInit {
    */
 
   public onResize(event) {
-    this.breakpoint = (event.target.innerWidth < 767) ? 1 : 2;
+    this.breakpoint = (event.target.innerWidth <= this._configuration.mobileBreakPoint) ? 1 : 2;
   }
 
 }

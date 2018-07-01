@@ -13,5 +13,5 @@ export class Configuration {
   public defaultGalleryItemsValue: number = 5;
 
 //  Sizes
-  public mobileBreakPoint = 766
+  public mobileBreakPoint = 766;
 }

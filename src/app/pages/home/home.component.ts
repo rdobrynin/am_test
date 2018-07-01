@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { state, trigger, transition, style, animate } from '@angular/animations';
-import { ApiService} from "../../services/api.service";
+import { trigger, transition, style, animate } from '@angular/animations';
+import { ApiService} from '../../services/api.service';
 import { Configuration } from '../../constants';
-import {Observable} from 'rxjs/Rx';
-import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +28,7 @@ export class HomeComponent implements OnInit {
   priceFromControl: FormControl;
   priceToControl: FormControl;
   queryControl: FormControl;
-  typeControl:string =  '';
+  typeControl =  '';
 
 
   limitValue = this._configuration.defaultLimitValue;
@@ -38,10 +37,10 @@ export class HomeComponent implements OnInit {
   queryValue = '';
 
   getLimitValue: string = this._configuration.defaultLimitValue;
-  getType: string = '';
-  getPriceFrom: string = '';
-  getPriceTo: string = '';
-  getQuery: string = '';
+  getType = '';
+  getPriceFrom = '';
+  getPriceTo = '';
+  getQuery = '';
 
   propertyItems: Array<any>;
 
@@ -59,7 +58,7 @@ export class HomeComponent implements OnInit {
         this.getPriceFrom,
         this.getPriceTo,
         this.getQuery ).subscribe((data) => this.parseFeedData(data), err => console.error(err),
-        () => console.info('done'));
+        () => console.log('done'));
     });
 
   }
@@ -100,7 +99,7 @@ export class HomeComponent implements OnInit {
       String(this.priceFromValue),
       String(this.priceToValue),
       this.queryValue ).subscribe((data) => this.parseFeedData(data), err => console.error(err),
-      () => console.info('done'));
+      () => console.log('done'));
   }
 
   /**
