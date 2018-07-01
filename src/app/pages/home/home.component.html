@@ -1,8 +1,30 @@
 <app-header></app-header>
 <div class="home__feedList-wrapper" *ngIf="propertyItems !== undefined" @fadeIn>
-    <section>
-        <app-sort></app-sort>
-    </section>
+    <div class="sort__wrapper">
+        <mat-form-field class="search-form">
+            <input matInput placeholder="Select limit" type="number" [formControl]="limitControl" minlength="1">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Price From" type="number" [formControl]="priceFromControl" minlength="1">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Price to" type="number" [formControl]="priceToControl" minlength="1">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Select type" [(value)]="typeControl">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let type of searchTypes"  [value]="type">{{type}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Query" type="text" [formControl]="queryControl" minlength="1">
+        </mat-form-field>
+        <button button="submit" mat-raised-button color="primary" (click)="submitSearch()">Search</button>
+    </div>
+    <br>
+
     <section *ngIf="propertyItems.length >= 1; else noItemsFound">
         <div *ngFor="let property of propertyItems">
             <app-property-item [propertyItem]="property"></app-property-item>

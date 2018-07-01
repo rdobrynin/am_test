@@ -10,7 +10,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { PropertyItemComponent } from './components/property-item/property-item.component';
 import { PropertyComponent } from './pages/property/property.component';
 import { ApiService } from './services/api.service';
-import { SortComponent } from './components/sort/sort.component';
 import { Configuration } from './constants';
 import { HeaderComponent } from './components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -34,7 +33,6 @@ export const ROUTES: Routes = [
     HomeComponent,
     PropertyItemComponent,
     PropertyComponent,
-    SortComponent,
     HeaderComponent,
     GenerateArrayPipe
   ],

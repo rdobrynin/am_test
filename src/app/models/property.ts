@@ -1,6 +1,10 @@
 export interface Property {
-  name?: string;
-  description?: string;
+  id?: string;
+  propertyType?: string;
+  realAddress?: string;
+  price?: string;
+  priceOld?: string;
+  thumbUrl?: string;
   pictures?: Array<string>;
   metadata?: Array<string>;
 }

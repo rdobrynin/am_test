@@ -82,7 +82,6 @@ export class PropertyComponent implements OnInit {
       });
     }
     this.galleryImages = newImages;
-    console.log(this.property.metadata);
   }
 
 
